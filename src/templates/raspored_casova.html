@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css">
+    <script src="../static/jquery-3.4.1.min.js"></script>
+    <script src="../static/skripta.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dejan Stojilković s25/18</title>
+</head>
+<body>
+    <label>
+        Pretraga tabele: <input type="text" id="pretrazi">
+    </label>
+    <table class="heder">
+        <thead>
+            <tr>
+                <th>Predmet</th>
+                <th>Tip</th>
+                <th>Profesor</th>
+                <th>Grupe</th>
+                <th>Dan</th>
+                <th>Termin</th>
+                <th>Učionice</th>
+            </tr>
+        </thead>
+        <tbody id="celatabela">
+            {% for red in redovi %}
+            
+                <tr>
+                    <td>{{red.split(',')[0]}}</td>
+                    <td>{{red.split(',')[1]}}</td>
+                    <td>{{red.split(',')[2]}}</td>
+                    <td>{{red.split(',')[3]}}</td>
+                    <td>{{red.split(',')[4]}}</td>
+                    <td>{{red.split(',')[5]}}</td>
+                    <td>{{red.split(',')[6]}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+       <div class="dole">
+           <div class="left">
+               <p>Profesori</p>
+               <ul>
+                
+                   {% for profesor in jedinstvena_imena %}
+                   <li><a href="#">{{profesor}}</a></li>
+                   {% endfor %}
+               </ul>
+           </div>
+           <div class="right">
+                <p>Ucionice</p>
+                <ul>
+                    {% for ucionica in jedna_ucionica %}
+                   <li><a href="#">{{ucionica}}</a></li>
+                   {% endfor %}
+                </ul>
+           </div>
+       </div>
+</body>
+</html>
